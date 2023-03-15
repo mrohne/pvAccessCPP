@@ -8,7 +8,7 @@
 
 #if defined(_WIN32)
 #  define USE_LANMAN
-#elif !defined(__rtems__) && !defined(vxWorks)
+#elif !defined(__rtems__) && !defined(vxWorks) && !defined(__FreeRTOS__)
 #  define USE_UNIX_GROUPS
 #endif
 

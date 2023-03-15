@@ -164,7 +164,7 @@ void checkNode(ifaceNode& node)
     }
 }
 
-#if !defined(_WIN32)
+#if !defined(_WIN32) && !defined(__FreeRTOS__)
 
 /*
  * Determine the size of an ifreq structure
@@ -342,7 +342,7 @@ int discoverInterfaces(IfaceNodeVector &list, SOCKET socket, const osiSockAddr *
 }
 
 
-#else
+#elif defined(_WIN32)
 
 #define VC_EXTRALEAN
 #include <winsock2.h>
@@ -458,6 +458,13 @@ int discoverInterfaces(IfaceNodeVector &list, SOCKET socket, const osiSockAddr *
     }
 
     free (pIfinfoList);
+    return 0;
+}
+
+#elif defined(__FreeRTOS__)
+
+int discoverInterfaces(IfaceNodeVector &list, SOCKET socket, const osiSockAddr *pMatchAddr)
+{
     return 0;
 }
 

@@ -30,7 +30,7 @@
     #define HAS_DBUNITTEST 0
 #endif
 
-#if defined(vxWorks) || defined(__rtems__)
+#if defined(vxWorks) || defined(__rtems__) || defined(__FreeRTOS__)
     #define HAS_SYSTEM 0
 #else
     #define HAS_SYSTEM 1

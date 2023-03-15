@@ -34,6 +34,7 @@ PROD_SYS_LIBS_WIN32 += netapi32 ws2_32
 
 PROD_vxWorks = -nil-
 PROD_RTEMS = -nil-
+PROD_FreeRTOS = -nil-
 PROD_iOS = -nil-
 
 include $(TOP)/configure/RULES
